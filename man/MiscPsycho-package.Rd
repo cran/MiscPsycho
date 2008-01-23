@@ -12,8 +12,8 @@ MiscPsycho is a package containing functions that may be useful to applied psych
 \tabular{ll}{
 Package: \tab MiscPsycho\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2007-05-08\cr
+Version: \tab 1.1\cr
+Date: \tab 2008-01-21\cr
 License: \tab GPL \cr
 }
 % xx <- simRasch(200, 10) simulate data
@@ -29,7 +29,7 @@ Maintainer: Harold C. Doran <hdoran@air.org>
 See the ltm package
 }
 \examples{
-% xx <- simRasch(200, 10)
-% aa <- jml(xx$data)
+xx <- simRasch(200, 10)
+aa <- jml(xx$data)
 }
 \keyword{misc}

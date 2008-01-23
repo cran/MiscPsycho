@@ -1,6 +1,5 @@
 \name{jml}
 \alias{jml}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{Joint Maximum Likelihood}
 \description{
 Estimates the Rasch model using joint maximum likelihood (JML)
@@ -8,7 +7,6 @@ Estimates the Rasch model using joint maximum likelihood (JML)
 \usage{
 jml(dat, con = 0.001, bias = FALSE)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{dat}{A data frame or matrix containing item responses}
   \item{con}{Convergence criterion}
@@ -30,7 +28,5 @@ jml returns item parameter estimates, their asymptotic standard errors, the samp
 % xx <- simRasch(200, 10)
 % aa <- jml(xx$data)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
 
 \keyword{models}

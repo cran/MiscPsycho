@@ -1,6 +1,5 @@
 \name{piPlot}
 \alias{piPlot}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{Person Item Plot}
 \description{
  Plot the density of items and persons together
@@ -8,7 +7,6 @@
 \usage{
 piPlot(dat, params)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{dat}{Data frame or matrix containing item responses}
   \item{params}{Item parameters}
