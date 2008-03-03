@@ -1,6 +1,6 @@
 `irt.ability` <-
 function (x, params, ind.dichot = NULL, std.err = FALSE, 
-method = c("MLE", "MAP", "EAP"), control = list(), ...) {
+method = c("MLE", "MAP", "EAP"), control = list()) {
     method <- toupper(method)
     method <- match.arg(method)
     if (any.dicht <- !is.null(ind.dichot)) {

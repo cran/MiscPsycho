@@ -3,26 +3,42 @@
 \title{IRT Ability Estimates}
 \description{Returns the MLE, MAP, or the EAP given a set of item parameters}
 \usage{
-irt.ability(x, params, ind.dichot = NULL, std.err = FALSE, method = c("MLE", "MAP", "EAP"), control = list(), ...)
+irt.ability(x, params, ind.dichot = NULL, std.err = FALSE, method = c("MLE", "MAP", "EAP"), control = list())
 }
 \arguments{
-  \item{x}{A vector of observed item responses}
-  \item{params}{Item parameters organized as a list of lists}
-  \item{ind.dichot}{Denotes which items in x are multiple choice items}
-  \item{std.err}{If TRUE returns the standard error}
-  \item{method}{MLE, MAP, or EAP}
-  \item{control}{A list of control parameters. See details below}
-  \item{\dots}{Further arguments passed to optim}
+  \item{x}{a numeric vector of observed item responses.}
+  \item{params}{item parameters organized as a list of lists. For more info see the \bold{Details} section and 
+    the \bold{Examples} below.}
+  \item{ind.dichot}{a numeric vector that denotes which items in \code{x} are multiple choice items. 
+    See the \bold{Examples} below.}
+  \item{std.err}{logical; if TRUE it returns the standard error.}
+  \item{method}{a character string indicating which method to use; available options are Maximum Likelihood Estimation, 
+    Maximum A Posteriori and Expected A Posteriori.}
+  \item{control}{a list of control parameters,
+    \describe{
+        \item{D}{a constant usually fixed at 1.7 to bring the logistic function into coincidence with the probit.}
+        \item{mu}{mean of the normal prior distribution.}
+        \item{sigma}{standard deviation of the normal prior distribution.}
+        \item{Q}{number of quadrature points used in the Gauss-Hermite approximation.}
+        \item{\code{start_val}}{a starting value for the optimization routine.}
+    }
+  }
 }
+
 \details{
-  Function can be used for a mixture of items based on dichotomously scored data and polytomously scored data. The control parameters include:
-  \item{D}{A constant usually fixed at 1.7 to bring the logistic function into coincidence with the probit}
-  \item{mu}{Mean of the prior distribution}
-  \item{sigma}{Standard deviation of the prior distribution}
-  \item{Q}{Number of quadrature points used in the Gauss-Hermite approximation}
-  \item{\code{start_val}}{User can choose a starting value for the optimization routine}
+   The function can be used for a mixture of dichotomously and polytomously scored items. For dichotomous items the 
+  Birnbaum's three parameter model is assumed for which \eqn{a} denotes the discrimination parameter, \eqn{b} the 
+  difficulty parameter and \eqn{c} the guessing parameter. For polytomous items the generalized partial credit model
+  is assumed for which \eqn{a} denotes the discrimination parameter and \eqn{d} the threshold parameters. See the 
+  \bold{Examples} below.}
+
+\value{a numeric value. If \code{std.err = TRUE}, it has also the attribute 'std.err' that contains the estimated 
+    standard error for the estimated ability.}
+
+\references{
+  Thissen, D and Wainer, H. (2001). Test Scoring. Lawrence Erlbaum.
 }
-\value{Returns the MLE, MAP, or EAP depending on method}
+
 \author{Harold C. Doran and Dimitris Rizopoulos}
 \examples{
 ## all mix
@@ -51,9 +67,9 @@ irt.ability(c(2,3), params, method = "MAP")
 irt.ability(c(2,3), params, method = "EAP")
 
 ## With standard error
-irt.ability(c(2,3), params, method = "MLE", std.error = TRUE)
-irt.ability(c(2,3), params, method = "MAP", std.error = TRUE)
-irt.ability(c(2,3), params, method = "EAP", std.error = TRUE)
+irt.ability(c(2,3), params, method = "MLE", std.err = TRUE)
+irt.ability(c(2,3), params, method = "MAP", std.err = TRUE)
+irt.ability(c(2,3), params, method = "EAP", std.err = TRUE)
 
 ## From Test Scoring (Thissen) Page 115
 

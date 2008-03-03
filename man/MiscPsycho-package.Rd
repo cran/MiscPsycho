@@ -12,7 +12,7 @@ MiscPsycho is a package containing functions that may be useful to applied psych
 \tabular{ll}{
 Package: \tab MiscPsycho\cr
 Type: \tab Package\cr
-Version: \tab 1.1\cr
+Version: \tab 1.2\cr
 Date: \tab 2008-01-21\cr
 License: \tab GPL \cr
 }

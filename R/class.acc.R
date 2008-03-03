@@ -33,6 +33,7 @@ if (any.dicht <- !is.null(ind.dichot)) {
             } else 0
 		result.numer[i] <- exp(log.dich.part + log.poly.part) * dnorm(prof_cut - nodes[i], con$mu, con$sigma)* exp(nodes[i])* whts[i]
       } # end for loop
+   result.numer[is.na(result.numer)] <- 0
    result.numer <- sum(result.numer)
  } else {
     for (i in seq_along(nodes)) {
@@ -45,6 +46,7 @@ if (any.dicht <- !is.null(ind.dichot)) {
             } else 0
 		result.numer[i] <- exp(log.dich.part + log.poly.part) * dnorm(nodes[i] + prof_cut, con$mu, con$sigma)* exp(nodes[i])* whts[i]
    } # end for loop
+   result.numer[is.na(result.numer)] <- 0
    result.numer <- sum(result.numer)
 } 
    gq <- gauss.quad.prob(con$Q, dist = "normal", mu = con$mu, sigma = con$sigma)
@@ -61,6 +63,7 @@ if (any.dicht <- !is.null(ind.dichot)) {
             } else 0
 		result.denom[i] <- exp(log.dich.part + log.poly.part) * whts[i]
    } # end for loop
+   result.denom[is.na(result.denom)] <- 0
    result.denom <- sum(result.denom)
    result.numer/result.denom
 } # end function
