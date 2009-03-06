@@ -13,15 +13,15 @@ class.acc(x, prof_cut, params, ind.dichot, aboveC = FALSE, control=list())
   \item{params}{Item parameters organized as a list of lists}
   \item{ind.dichot}{Indicator denoting which items in the vector x are dichotomous}
   \item{aboveC}{Test for above or below a cut score}
-  \item{control}{A list of control parameters. See details below}
-}
-\details{
-  Function can be used for a mixture of items based on dichotomously scored data and polytomously scored data. The control parameters include:
-  \item{D}{A constant usually fixed at 1.7 to bring the logistic function into coincidence with the probit}
-  \item{mu}{Mean of the prior distribution}
-  \item{sigma}{Standard deviation of the prior distribution}
-  \item{Q}{Number of quadrature points used in the Gauss-Hermite approximation}
- }
+  \item{control}{A list of control parameters,
+     \describe{
+        \item{D}{A constant usually fixed at 1.7 to bring the logistic function into coincidence with the probit}
+        \item{mu}{Mean of the prior distribution}
+        \item{sigma}{Standard deviation of the prior distribution}
+        \item{Q}{Number of quadrature points used in the Gauss-Hermite approximation}
+      }
+    }
+  }
 \value{
   \item{prob}{Returns the probability that individual i has a true score above (or below) the cut score specified}
 }
@@ -36,4 +36,9 @@ class.acc(x, prof_cut = 0, params, ind.dichot = c(1:10), aboveC=TRUE)
 }
 
 \keyword{misc}
+
+
+
+
+
 

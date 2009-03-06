@@ -16,7 +16,7 @@ stringMatch(string.1, string.2, normalize = c("YES", "NO"), penalty = 1, case.se
   \item{case.sensitive}{logical; if TRUE, then a penalty occurs for differences in case of a character}
 }
 \value{
-  a numeric value. If \code{normalize = 'YES"}, then the edit distance is normalized to fall in the interval [0,1]. Else, the Levenshtein edit distance is returned.
+  a numeric value. If \code{normalize = 'YES'}, then the edit distance is normalized to fall in the interval [0,1]. Else, the Levenshtein edit distance is returned.
 }
 \references{http://en.wikipedia.org/wiki/Levenshtein\_distance}
 \author{Harold C. Doram}

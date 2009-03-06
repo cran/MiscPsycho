@@ -10,14 +10,16 @@ posterior(x, theta, params, ind.dichot, control = list())
   \item{theta}{Ability estimate}
   \item{params}{Item parameters organized as a list of lists}
   \item{ind.dichot}{Indicator denoting which items in x are multiple choice}
-  \item{control}{A control list of parameters. See details below}
+  \item{control}{A list of control parameters,
+     \describe{
+        \item{D}{A constant usually fixed at 1.7 to bring the logistic function into coincidence with the probit}
+        \item{mu}{Mean of the prior distribution}
+        \item{sigma}{Standard deviation of the prior distribution}
+        \item{Q}{Number of quadrature points used in the Gauss-Hermite approximation}
+    }
+  }
 }
-\details{
-  \item{D}{A constant usually fixed at 1.7 to bring the logistic function into coincidence with the probit}
-  \item{mu}{Mean of the prior distribution}
-  \item{sigma}{Standard deviation of the prior distribution}
-  \item{Q}{Number of quadrature points used in the Gauss-Hermite approximation}
-}
+
 \author{Harold C. Doran}
 \examples{
 params <- list("3pl" = list(a = c(1,1), b = c(0, 1), c = c(0,0)),
@@ -25,4 +27,7 @@ params <- list("3pl" = list(a = c(1,1), b = c(0, 1), c = c(0,0)),
 posterior(x = c(0,1,2,2), theta = 1, params = params, ind.dichot=c(1,2)) 
 }
 \keyword{misc}
+
+
+
 
