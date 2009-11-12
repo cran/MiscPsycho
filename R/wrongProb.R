@@ -1,0 +1,3 @@
+wrongProb <-
+function(...) UseMethod("wrongProb")
+

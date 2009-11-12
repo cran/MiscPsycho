@@ -26,6 +26,7 @@ params <- list("3pl" = list(a = c(1,1), b = c(0, 1), c = c(0,0)),
                "gpcm" = list(a = c(1,1), d = list(item1 = c(0,1,2,3,4), item2 = c(0,.5,1, 1.5))))
 posterior(x = c(0,1,2,2), theta = 1, params = params, ind.dichot=c(1,2)) 
 }
+
 \keyword{misc}
 
 

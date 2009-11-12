@@ -1,32 +1,71 @@
 \name{jml}
 \alias{jml}
-\title{Joint Maximum Likelihood}
-\description{
-Estimates the Rasch model using joint maximum likelihood (JML)
-}
+\alias{jml.default}
+\alias{jml.formula}
+\alias{fit.Stats}
+\title{Joint Maximum Likelihood Estimation for Rasch Item Parameters}
+\description{JML is used to estimate item parameters for the Rasch model.}
 \usage{
-jml(dat, con = 0.001, bias = FALSE)
+jml(...)
+\method{jml}{default}(dat, con = 1e-3, bias=FALSE, ...)
+\method{jml}{formula}(formula, data, na.action, subset, con = 1e-3, bias = FALSE, ...)
 }
 \arguments{
-  \item{dat}{A data frame or matrix containing item responses}
+  \item{formula}{an object of class \code{"formula"} (or one that can be
+          coerced to that class): a symbolic description of the model
+          to be fitted.  The details of model specification are given
+          under \code{Details}.}
+  \item{data}{an optional data frame, list or environment (or object
+          coercible by \code{as.data.frame} to a data frame) containing
+          the variables in the model.  If not found in \code{data}, the
+          variables are taken from \code{environment(formula)},
+          typically the environment from which \code{jml} is called.}
+  \item{dat}{A data frame or matrix with item responses. Implemented only for the jml.default method.}
+  \item{na.action}{a function which indicates what should happen when the data
+          contain \code{NA}s.  Defaults to \code{getOption("na.action")}.}
+  \item{subset}{an optional vector specifying a subset of observations to be
+          used.}
   \item{con}{Convergence criterion}
-  \item{bias}{Correction for JML bias}
-}
-\details{
-JML estimation only has good asymptotic properties. Marginal Maximum Likelihood (MML) is a better technology for parameter estimation.
-However, this option is provided for users of Winsteps who may want to explore their data in R prior to working in Winsteps.
-JML is known to return biased parameter estimates. If bias = TRUE, then a correction for bias is made using (L-1)/L * b where L
-is the total number of test items and b is the original item parameter
-}
-\value{
-jml returns item parameter estimates, their asymptotic standard errors, the sample size per item, and the Infit and Outfit statistics found in Winsteps.
-}
-\references{Best Test Design. Wright and Stone (1979)}
-\author{Harold C. Doran}
-\seealso{ltm}
-\examples{
-% xx <- simRasch(200, 10)
-% aa <- jml(xx$data)
+  \item{bias}{Implements the correction for bias as described by Wright and Stone}
+  \item{\dots}{Not implemented}
 }
 
-\keyword{models}
+\value{
+  A list with class \code{"jml"} containing the following components:
+  \item{Estimate}{the value of Rasch item parameter (b-value)}
+  \item{Std.Error}{the standard error of the item parameter}
+  \item{Infit}{The Rasch infit statistic}
+  \item{Outfit}{The Rasch outfit statistic}
+  \item{Iterations}{the number of Newton-Raphson iterations used}
+  \item{model.frame}{the data matrix used for estimating item parameters. In JML estimation,
+  individuals with all items correct and all items incorrect cannot be used in the calibration. Hence, they are 
+  dropped from the original data matrix provided by the \code{data} argument.}
+}
+
+\details{
+   Models for \code{jml} are specified symbolically.  A typical model
+     has the form \code{~item1 + item2} where the terms to the right of the 
+	\code{~} are the columns of the data matrix containing the binary item responses. 
+}
+
+\author{Harold Doran}
+\examples{
+set.seed(1234)
+tmp <- data.frame(item1 = sample(c(0,1), 20, replace=TRUE), item2 = sample(c(0,1), 20, replace=TRUE),
+item3 = sample(c(0,1), 20, replace=TRUE),item4 = sample(c(0,1), 20, replace=TRUE),item5 = sample(c(0,1), 20, replace=TRUE))
+
+## Formula interface
+fm1 <- jml(~ item1 + item2 + item3 + item4 + item5, data = tmp)
+summary(fm1)
+coef(fm1)
+plot(fm1)
+
+## Default interface
+fm1 <- jml(tmp)
+summary(fm1)
+}
+
+\keyword{misc}
+
+
+

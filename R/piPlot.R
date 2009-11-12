@@ -1,4 +1,4 @@
-`piPlot` <-
+piPlot <-
 function(dat, params){
 	dat <- as.matrix(dat)
 	dat <- dat[rowSums(dat)!=0,]         # get rid of all incorrect

@@ -2,9 +2,7 @@
 \alias{MiscPsycho-package}
 \alias{MiscPsycho}
 \docType{package}
-\title{
-Miscellaneous Psychometrics
-}
+\title{Miscellaneous Psychometrics}
 \description{
 MiscPsycho is a package containing functions that may be useful to applied psychometricians
 }
@@ -12,24 +10,23 @@ MiscPsycho is a package containing functions that may be useful to applied psych
 \tabular{ll}{
 Package: \tab MiscPsycho\cr
 Type: \tab Package\cr
-Version: \tab 1.2\cr
-Date: \tab 2008-01-21\cr
-License: \tab GPL \cr
+Version: \tab 1.5\cr
+Date: \tab 2009-11-12\cr
+License: \tab GPL\cr
+LazyLoad: \tab yes\cr
 }
-% xx <- simRasch(200, 10) simulate data
-% classical(xx$data)
-% aa <- jml(xx$data) estimate item parameters
-% scoreCon(aa$p) create a score conversion table
 }
 \author{
-
 Maintainer: Harold C. Doran <hdoran@air.org>
 }
-\seealso{
-See the ltm package
+
+
+\keyword{ package }
+
+\examples{\dontrun{
+params <- list("3pl" = list(a = c(1,1), b = c(0, 1), c = c(0,0)),
+               "gpcm" = list(a = c(1,1), d = list(item1 = c(0,1,2,3,4), item2 = c(0,.5,1, 1.5))))
+irt.ability(c(0,1,2,2), params, ind.dichot = c(1,2), method = "MLE")
+irt.ability(c(0,1,2,2), params, ind.dichot = c(1,2), method = "MAP")
+irt.ability(c(0,1,2,2), params, ind.dichot = c(1,2), method = "EAP")}
 }
-\examples{
-xx <- simRasch(200, 10)
-aa <- jml(xx$data)
-}
-\keyword{misc}

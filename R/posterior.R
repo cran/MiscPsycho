@@ -1,4 +1,4 @@
-`posterior` <-
+posterior <-
 function(x, theta, params, ind.dichot, control=list()){
 if (any.dicht <- !is.null(ind.dichot)) {
         x1 <- x[ind.dichot]

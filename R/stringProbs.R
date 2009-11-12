@@ -1,4 +1,4 @@
-`stringProbs` <-
+stringProbs <-
 function(dat, N = 10){
    ss <- sample(nrow(dat), N)
    dat_sample <- dat[c(ss),1]

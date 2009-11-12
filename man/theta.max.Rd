@@ -8,7 +8,7 @@ theta.max(x, betas)
 }
 \arguments{
   \item{x}{Vector of item responses}
-  \item{betas}{Vector of Rasch location parametersRas}
+  \item{betas}{Vector of Rasch location parameters}
 }
 \author{Harold Doran}
 \seealso{irt.ability for a more general function}

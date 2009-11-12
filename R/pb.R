@@ -1,4 +1,4 @@
-`pb` <-
+pb <-
 function(data, ...){
 	result <- numeric(ncol(data))
 		for(i in 1:ncol(data)) {

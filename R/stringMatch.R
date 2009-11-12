@@ -1,4 +1,4 @@
-`stringMatch` <-
+stringMatch <-
 function(string.1, string.2, normalize=c('YES', 'NO'), penalty = 1, case.sensitive = FALSE) {
    normalize <- toupper(normalize)
    normalize <- match.arg(normalize)

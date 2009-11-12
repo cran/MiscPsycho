@@ -1,4 +1,4 @@
-`plaus.val` <-
+plaus.val <-
 function(x, params, PV = 5, ind.dichot, M = 3, max = 5000, ...){
    L <- 0  
    i <- 1

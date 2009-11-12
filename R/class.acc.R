@@ -1,4 +1,4 @@
-`class.acc` <-
+class.acc <-
 function(x, prof_cut, params, ind.dichot, aboveC = FALSE, control=list()){
 if (any.dicht <- !is.null(ind.dichot)) {
         x1 <- x[ind.dichot]

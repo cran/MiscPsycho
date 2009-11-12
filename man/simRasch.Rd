@@ -20,6 +20,6 @@ simRasch(Nt, Nb, mu = 0, sigma = 1)
 }
 \author{Harold C. Doran}
 \examples{
-simRasch(200, 10) # 200 persons 10 items
-}
+simRasch(200, 10) # 200 persons 10 items}
+
 \keyword{misc}

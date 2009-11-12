@@ -1,4 +1,4 @@
-`simRasch` <-
+simRasch <-
 function(Nt, Nb, mu=0, sigma=1) {	
 	theta <- rnorm(Nt, mu, sigma)
 	b <- runif(Nb,-3,3)

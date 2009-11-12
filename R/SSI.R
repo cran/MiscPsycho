@@ -1,0 +1,3 @@
+SSI <-
+function(...) UseMethod("SSI")
+

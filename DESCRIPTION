@@ -1,12 +1,14 @@
 Package: MiscPsycho
 Type: Package
-Title: Miscellaneous Psychometrics
-Version: 1.4
-Date: 2009-03-06
+Title: Miscellaneous Psychometric Analyses
+Version: 1.5
+Date: 2009-11-12
 Author: Harold C. Doran
 Depends: statmod
 Maintainer: Harold C. Doran <hdoran@air.org>
-Description: Computes statistical analyses useful for applied psychometricians
+Description: Miscellaneous functions for psychometric problems
 License: GPL
 LazyLoad: yes
-Packaged: Mon Mar  9 15:55:38 2009; hdoran
+Packaged: 2009-11-18 19:27:47 UTC; hdoran
+Repository: CRAN
+Date/Publication: 2009-11-19 13:00:29

@@ -1,4 +1,4 @@
-`irt.ability` <-
+irt.ability <-
 function (x, params, ind.dichot = NULL, std.err = FALSE, 
 method = c("MLE", "MAP", "EAP"), control = list()) {
     method <- toupper(method)
