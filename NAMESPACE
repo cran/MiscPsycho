@@ -1,5 +1,5 @@
 export(alpha, jml, SL, cheat, wrongProb, scoreCon, SSI, stringMatch, stringProbs, choose.M, 
-class.acc, classical, irt.ability, plaus.val, posterior, simRasch, SLderivs, theta.max)
+class.acc, classical, irt.ability, plaus.val, posterior, simRasch, SLderivs, theta.max, mml)
 S3method(jml, fit)
 S3method(jml, default)
 S3method(jml, formula)
@@ -41,4 +41,10 @@ S3method(classical, formula)
 S3method(print, classical)
 S3method(summary, classical)
 S3method(print, summary.classical)
+S3method(mml, fit)
+S3method(mml, default)
+S3method(mml, formula)
+S3method(print, mml)
+S3method(summary, mml)
+S3method(print, summary.mml)
 

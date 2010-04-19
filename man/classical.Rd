@@ -6,8 +6,8 @@
 \description{Provides p-values, standard errors of p-values, and point-biserial correlations for multiple choice test items. The standard errors can be design-consistent to reflect the sampling design}
 \usage{
 classical(...)
-\method{classical}{default}(data, designSE = FALSE, group, ...)
-\method{classical}{formula}(formula, data, na.action, subset, designSE, group,  ...)
+\method{classical}{default}(data, designSE = FALSE, group, na.rm = TRUE, use = 'everything', ...)
+\method{classical}{formula}(formula, data, na.action, subset, designSE = FALSE, group, na.rm = TRUE, use = 'everything', ...)
 }
 \arguments{
   \item{formula}{an object of class \code{"formula"} (or one that can be
@@ -21,6 +21,8 @@ classical(...)
           typically the environment from which \code{classical} is called.}
     \item{na.action}{a function which indicates what should happen when the data
           contain \code{NA}s.  Defaults to \code{getOption("na.action")}.}
+	\item{na.rm}{logical.  Should missing values be removed?}
+	\item{use}{See \code{cor} function}
 	\item{subset}{an optional vector specifying a subset of observations to be
           used.}
   \item{designSE}{logical. If \code{TRUE} the function returns design-consistent standard errors to capture 

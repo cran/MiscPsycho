@@ -13,8 +13,8 @@ function(string.1, string.2, normalize=c('YES', 'NO'), penalty = 1, case.sensiti
    n <- length(s1)
    m <- length(s2)
    d <- matrix(0, nrow=n+1, ncol=m+1)
-   d[,1] <- 1:(n+1)
-   d[1,] <- 1:(m+1)
+   d[,1] <- 0:n
+   d[1,] <- 0:m
    d[1,1] <- 0
    for (i in 2:(n+1)) {
       for (j in 2:(m+1)) {
@@ -27,4 +27,3 @@ function(string.1, string.2, normalize=c('YES', 'NO'), penalty = 1, case.sensiti
    switch(normalize, YES = 1-d[n+1,m+1]/max(n,m), # normalize to [0,1]
    NO = d[n+1,m+1]) # Return edit distance
 }
-

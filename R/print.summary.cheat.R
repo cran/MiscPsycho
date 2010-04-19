@@ -1,6 +1,6 @@
 print.summary.cheat <-
 function(x, ...){
-   cat("\n Number of Possible Cheatering Pairs:", length(x$pairs), "\n")
+   cat("\n Number of Possible Cheating Pairs:", length(x$pairs), "\n")
    cat("\n Possible Cheating Pairs:", x$pairs, "\n")
    cat("\n Number of Exact Matches:", x$ExactMatch, "\n")
    cat("\n Observed Z Values:", round(x$Zobs, 2), "\n")

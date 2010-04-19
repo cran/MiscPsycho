@@ -574,7 +574,6 @@ A = \frac{\sigma(\hat{b}_b)}{\sigma(\hat{b}_a)}
 B = \mu(\hat{b}_b) - A*\mu(\hat{b}_a)
 \end{equation}
 
-
 \section{Levenshtein Distance}
 
 R has many functions for pattern matching, especially those based on \texttt{grep}. However, this function is added to this package for a specific psychometric application--the merging of student databases to create longitudinal data files. The complete details demonstrating how to apply this function for merging student records to create longitudinal data files is found in Doran (in press) \footnote{Application of the Levenshtein Distance Metric For the Construction of Longitudinal Data Files. Educational Measurement: Issues and Practice.}
@@ -616,6 +615,17 @@ Because the intended inference is $\mathbb{P}(x \geq x_i)$, we compute the cumul
 \begin{equation}
 \mathbb{P}(x \geq x_i) = 1 - \sum_{x_i \leq x} p(x_i)
 \end{equation}
+
+\section{Marginal Maximum Likelihood Estimation for Population Parameters}
+
+Suppose we have the following likelihood function for an item response model:
+
+\begin{equation}
+\label{eqn:mml}
+f(x) = \prod^N_{i=1}\int_{\Theta}\prod^K_{j=1}p(x|\theta,\beta)f(\theta)d\theta
+\end{equation}
+
+\noindent where $N$ indexes the total number of individuals, $K$ indexes the total number of items, $p(x|\theta,\beta)$ is the data likelihood and $f(\theta) \sim \mathcal{N}(\mu, \sigma)$. Assuming the item parameters and response patterns are known, we can maximize the marginal likelihood to estimate the latent parameters $\mu$ and $\sigma$.
 
 \section{Examples}
 
@@ -1011,5 +1021,28 @@ stringProbs(dat, N=5)
 @
 
 
+\subsection{Marginal Maximum Likelihood Estimation}
 
+Suppose we have in hand some estimates of item parameters as well as the response patterns of individuals. The \texttt{mml} function can be used to obtain estimates of the population distribution. The IRT model used below is Rasch (hence \texttt{D=1}), but the function also supports 2PL and 3PL models.
+
+<<>>=
+N <- 5
+aa <- simRasch(200,N, mu=0, sigma=1)
+tmp <- aa$data
+b <- aa$gen
+params <- list("3pl" = list(a = rep(1,N), b = b, c = rep(0,N)), "gpcm" = NULL)
+colnames(tmp) <- paste('item', 1:5, sep='')
+@
+
+Like most functions in this package, we can use the formula argument as follows:
+
+<<>>=
+fm1 <- mml(~ item1 + item2 + item3 + item4 + item5, data = tmp, params = params, control=list(D=1, startVal=c(0,1)))
+summary(fm1)
+coef(fm1)
+@
+
+One possible application for these estimates is to generate population parameters for the \texttt{class.acc} function, which requires parameters for the population distribution. Hence, assuming item parameters are known (or estimated), we can use the \texttt{mml} function to obtain estimates of the parameters for the population distribution and subsequently use these values in the \texttt{class.acc} function. 
+
+This function may also be useful for some of the other bayesian methods in this package, such as obtaining EAP or MAP estimates. 
 \end{document}

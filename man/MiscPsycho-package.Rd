@@ -10,8 +10,8 @@ MiscPsycho is a package containing functions that may be useful to applied psych
 \tabular{ll}{
 Package: \tab MiscPsycho\cr
 Type: \tab Package\cr
-Version: \tab 1.5\cr
-Date: \tab 2009-11-12\cr
+Version: \tab 1.6\cr
+Date: \tab 2010-04-20\cr
 License: \tab GPL\cr
 LazyLoad: \tab yes\cr
 }

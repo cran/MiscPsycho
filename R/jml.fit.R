@@ -16,7 +16,7 @@ function(dat, con = 1e-3, bias=FALSE, ...){
 	dat <- as.matrix(dat)
 	dat <- dat[rowSums(dat)!=0,]         # get rid of all incorrect
 	dat <- dat[rowSums(dat)!=ncol(dat),] # get rid of perfect scores	
-	b_vector <- numeric(ncol(dat))        # starting values
+	b_vector <- as.vector(log((1 - colMeans(dat))/colMeans(dat)))        # starting values
 	change <- rep(1, ncol(dat))
 	iter <- 0
 	while(any(abs(change) > con)) {
